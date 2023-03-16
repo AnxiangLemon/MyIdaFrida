@@ -1,0 +1,2 @@
+# MyIdaFrida
+Generate Frida Script
