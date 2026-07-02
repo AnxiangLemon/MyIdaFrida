@@ -22,7 +22,7 @@ def clear_screen():
 
 def generate_file_byjsdata(data, filename) -> bool:
     try:
-        open(filename, "w").write(data)
+        open(filename, "w", encoding="utf-8").write(data)
         print("生成的Frida脚本已导出到文件: ", filename)
     except Exception as e:
         print(e)
@@ -378,13 +378,13 @@ class Configuration:
     def store(self):
         try:
             data = {"frida_cmd": self.frida_cmd, "template": self.template}
-            open("IDAFrida.json", "w").write(json.dumps(data))
+            open("IDAFrida.json", "w", encoding="utf-8").write(json.dumps(data))
         except Exception as e:
             print(e)
 
     def load(self):
         try:
-            data = json.loads(open("IDAFrida.json", "r").read())
+            data = json.loads(open("IDAFrida.json", "r", encoding="utf-8").read())
             self.frida_cmd = data["frida_cmd"]
             self.template = data["template"]
         except Exception as e:
